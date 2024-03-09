@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./RoleManager.sol";
-
+import "@openzeppelin/contracts/access/RoleManager.sol";
 
 
 contract LandLicenseRegistry {
@@ -21,7 +20,7 @@ contract LandLicenseRegistry {
 
     modifier onlyNatory {
         // call contract roleContract để kiểm tra quyền
-        require(roleManager.hasNotaryRole(msg.sender), "Natory permission required");
+        require(roleManager.hasNatoryRole(msg.sender), "Natory permission required");
         _;
     }
 
